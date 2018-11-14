@@ -319,9 +319,9 @@ class MasterMessageProcessor(LocaleMixin):
                 m.text = ""
                 self.logger.debug("[%s] Telegram message is a \"Telegram GIF\".", message_id)
                 m.filename = getattr(message.document, "file_name", None) or None
-                m.type = MsgType.Image
-                m.file, m.mime, m.filename, m.path = self._download_gif(message.document)
-                m.mime = message.document.mime_type or m.mime
+                m.type = MsgType.Video
+                m.file, m.mime, m.filename, m.path = self._download_file(message.document,
+                                                                         message.animation.mime_type)
             elif mtype == TGMsgType.Document:
                 m.text = msg_md_caption
                 self.logger.debug("[%s] Telegram message type is document.", message_id)
