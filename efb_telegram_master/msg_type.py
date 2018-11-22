@@ -17,7 +17,7 @@ class TGMsgType:
     System = "System"
     Game = "Game"
     VideoNote = "Video_note"
-    Animation = "Video"
+    Animation = "Animation"
 
 
 def get_msg_type(msg: telegram.Message):
